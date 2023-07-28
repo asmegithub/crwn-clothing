@@ -1,23 +1,32 @@
 /** @format */
-import React from "react";
+import React, { Component } from "react";
 import { Route } from "react-router-dom";
-import HomePage from "./pages/homepage/homepage.component.jsx";
-import ShopPage from "./pages/shop/shop.component.jsx";
-import Header from "./components/header/header.component.jsx";
+import HomePage from "./pages/homepage/homepage.component";
+import ShopPage from "./pages/shop/shop.component";
+import Header from "./components/header/header.component";
+import SignInSignUp from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
+import { auth } from "./firebase/firebase.utils";
 import "./App.css";
 
-const HatsPage = (props) => <h1>Hats Page</h1>;
-
-function App() {
-  return (
-    <div>
-      <Header />
-      <switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/shop" component={ShopPage} />
-      </switch>
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      currentUser: null,
+    };
+  }
+  render() {
+    return (
+      <div>
+        <Header currentUser={this.state.currentUser} />
+        <switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/shop" component={ShopPage} />
+          <Route path="/signin" component={SignInSignUp} />
+        </switch>
+      </div>
+    );
+  }
 }
 
 export default App;
