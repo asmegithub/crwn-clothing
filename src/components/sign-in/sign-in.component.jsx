@@ -36,7 +36,6 @@ class SignIn extends Component {
             value={this.state.email}
             required
           />
-
           <FormInput
             type="password"
             name="password"
