@@ -52,4 +52,13 @@
       width: 10%;
     }
   }
+  @media screen and (max-width: 800px) {
+    align-items: center;
+    .custom-button {
+      opacity: 0.9;
+      display: block;
+      padding: 0 10px;
+      min-width: unset;
+    }
+  }
 }
